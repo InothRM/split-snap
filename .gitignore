@@ -3,3 +3,6 @@ dist/
 frontend/dist/
 frontend/.vite/
 backend/coverage/
+.env
+.env.*
+!.env.example

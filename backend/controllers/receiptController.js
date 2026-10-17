@@ -5,7 +5,7 @@ export function getHealth(_request, response) {
   response.json({ status: "ok" });
 }
 
-export function postAnalyzeReceipt(request, response) {
+export async function postAnalyzeReceipt(request, response) {
   if (!request.file) {
     response.status(400).json({ error: "Choose a receipt image or PDF to upload." });
     return;
@@ -15,5 +15,6 @@ export function postAnalyzeReceipt(request, response) {
     return;
   }
 
-  response.json(analyzeReceipt(request.file));
+  const result = await analyzeReceipt(request.file);
+  response.json(result);
 }
